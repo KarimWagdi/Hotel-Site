@@ -1,4 +1,5 @@
 'use client'
+import Link from "next/link";
 // Navbar Component
 import React, { useState } from "react";
 
@@ -18,7 +19,7 @@ const Navbar = () => {
                         <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-zinc-800 transition-all duration-300 group-hover:w-full"></span>
                     </li>
                     <li className="relative group">
-                        <a href="#rooms" className="transition-all">Rooms</a>
+                        <Link href="/rooms" className="transition-all">Rooms</Link>
                         <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-zinc-800 transition-all duration-300 group-hover:w-full"></span>
                     </li>
                     <li className="relative group">

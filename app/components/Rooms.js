@@ -2,7 +2,15 @@
 
 import Image from 'next/image';
 import React, { useState } from 'react';
-import cover from '../../public/aja_p_1853-38_13by5.webp'
+import { motion } from 'framer-motion';
+import { BsArrowRight } from 'react-icons/bs';
+import cover from '../../public/Kuredhivaru_xxxxxx_i128851_11by5.webp'
+import room1 from '../../public/Downtown_Dubai_xxx_i126114_3by2.webp'
+import room2 from '../../public/Downtown_Dubai_xxx_i126118_3by2.webp'
+import room3 from '../../public/Downtown_Dubai_xxx_i126123_3by2.webp'
+import room4 from '../../public/Downtown_Dubai_xxx_i126126_3by2.webp'
+import room5 from '../../public/Downtown_Dubai_xxx_i127610_3by2.webp'
+import room6 from '../../public/Downtown_Dubai_xxx_i126114_3by2.webp'
 
 const rooms = [
     {
@@ -10,42 +18,42 @@ const rooms = [
         name: 'Deluxe Room',
         description: 'A comfortable room with a queen-sized bed, ensuite bathroom, and a balcony.',
         price: '$150/night',
-        imageUrl: '/images/deluxe-room.jpg',
+        imageUrl: room1,
     },
     {
         id: 2,
         name: 'Suite',
         description: 'Spacious suite with a king-sized bed, living area, and stunning views.',
         price: '$250/night',
-        imageUrl: '/images/suite.jpg',
+        imageUrl: room2,
     },
     {
         id: 3,
         name: 'Standard Room',
         description: 'A cozy room with all basic amenities for a comfortable stay.',
         price: '$100/night',
-        imageUrl: '/images/standard-room.jpg',
+        imageUrl: room3,
     },
     {
         id: 4,
         name: 'Deluxe Room',
         description: 'A comfortable room with a queen-sized bed, ensuite bathroom, and a balcony.',
         price: '$150/night',
-        imageUrl: '/images/deluxe-room.jpg',
+        imageUrl: room4,
     },
     {
         id: 5,
         name: 'Suite',
         description: 'Spacious suite with a king-sized bed, living area, and stunning views.',
         price: '$250/night',
-        imageUrl: '/images/suite.jpg',
+        imageUrl: room5,
     },
     {
         id: 6,
         name: 'Standard Room',
         description: 'A cozy room with all basic amenities for a comfortable stay.',
         price: '$100/night',
-        imageUrl: '/images/standard-room.jpg',
+        imageUrl: room6,
     },
 ];
 
@@ -64,7 +72,7 @@ const Rooms = () => {
 
     const close = () => {
         setRoom(null);
-    }
+    };
 
     const handleRoomCountChange = (count) => {
         setRoomCount(count);
@@ -84,53 +92,117 @@ const Rooms = () => {
         setChildrenPerRoom(updatedChildren);
     };
 
-
     return (
         <div className="min-h-screen bg-gray-100">
             <main className="container mx-auto px-4 py-8">
-                <div className="bg-white text-zinc-800 py-6 text-center relative z-10">
-                    <h1 className="text-2xl md:text-4xl font-bold">City Name - Hotel Name</h1>
-                </div>
-                <Image
-                    src={cover}
-                    alt="City View"
-                    className="w-full h-auto object-cover mt-4"
-                />
-                <h2 className="text-xl md:text-2xl font-semibold text-center mb-6 mt-6">Our Rooms</h2>
+                <motion.div
+                    initial={{ y: -50, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.6 }}
+                    className="bg-white shadow-lg py-8 text-center relative z-10 rounded-lg"
+                >
+                    <h1 className="text-3xl md:text-5xl font-bold text-gray-800">City Name - Hotel Name</h1>
+                </motion.div>
 
+                <section className="relative bg-cover bg-center h-screen" style={{ backgroundImage: `url(${cover.src})` }} >
+                    <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+                    <div className="container mx-auto h-full flex flex-col justify-center items-center text-center text-white relative z-10">
+
+                        <motion.h1
+                            initial={{ y: -50, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            transition={{ duration: 1 }}
+                            className="text-5xl md:text-7xl font-bold"
+                        >
+                            Welcome to Luxury Rooms
+                        </motion.h1>
+
+
+                        <motion.p
+                            initial={{ y: 50, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            transition={{ duration: 1, delay: 0.5 }}
+                            className="mt-4 text-xl md:text-2xl"
+                        >
+                            Your Perfect Getaway Awaits
+                        </motion.p>
+
+                        <motion.a
+
+                            onClick={() => {
+                                document.getElementById('our-rooms').scrollIntoView({ behavior: 'smooth' });
+                            }}
+                            className="mt-8 px-6 py-3 cursor-pointer bg-primary-500 hover:bg-primary-700 text-white rounded-lg text-lg flex items-center"
+                            initial={{ scale: 0 }}
+                            animate={{ scale: 1 }}
+                            transition={{ duration: 0.5, delay: 1 }}
+                        >
+                            Explore Now <BsArrowRight className="ml-2" />
+                        </motion.a>
+
+                    </div>
+                </section>
+
+                <h2
+                    id="our-rooms"
+                    className="text-center mb-6 mt-6 text-3xl md:text-5xl font-bold"
+                >
+                    <motion.span
+                        initial={{ scale: 1 }}
+                        whileInView={{ scale: 1.5 }}
+                        transition={{ duration: 0.6 }}
+                        viewport={{ once: true }}
+                    >
+                        Our Rooms
+                    </motion.span>
+                </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                     {rooms.map((room) => (
-                        <div
+                        <motion.div
                             key={room.id}
-                            className="bg-white shadow-md rounded-lg overflow-hidden flex flex-col h-full">
-                            <img
-                                src={room.imageUrl || '/images/placeholder.jpg'}
+                            whileHover={{ scale: 1.05 }}
+                            className="bg-white shadow-md rounded-lg overflow-hidden flex flex-col h-full"
+                        >
+                            <Image
+                                src={room.imageUrl || '/images/room.jpg'}
                                 alt={room.name || 'Placeholder Image'}
-                                className="w-full h-48 object-cover"
+                                className="w-full h-64 object-cover"
+                                width={400}
+                                height={200}
                             />
                             <div className="p-4 flex-1 flex flex-col justify-between">
                                 <div>
-                                    <h3 className="text-lg font-semibold mb-2">{room.name}</h3>
+                                    <h3 className="text-lg font-semibold mb-2 text-zinc-800">{room.name}</h3>
                                     <p className="text-gray-600 mb-4">{room.description}</p>
                                 </div>
                                 <div className='mt-auto'>
                                     <p className="text-zinc-600 font-bold mb-2">{room.price}</p>
-                                    <button
+                                    <motion.button
                                         onClick={() => handleBooking(room)}
                                         className="w-full bg-zinc-600 text-white py-2 rounded border hover:border-zinc-600 hover:bg-white hover:text-zinc-600 transition mt-auto"
                                     >
                                         Check Availability
-                                    </button>
+                                    </motion.button>
                                 </div>
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
 
                 {room && (
-                    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-                        <div className="bg-white p-6 rounded-lg shadow-lg w-11/12 max-w-lg max-h-[80vh] overflow-y-auto">
-                            <h2 className="text-xl font-semibold mb-4">Book {room.name}</h2>
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
+                        onClick={close}
+                    >
+                        <motion.div
+                            initial={{ y: -50 }}
+                            animate={{ y: 0 }}
+                            className="bg-white p-8 rounded-lg shadow-lg w-3/4 max-w-2xl max-h-[80vh] overflow-y-auto relative"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <h2 className="text-xl font-semibold mb-4 text-center">Book {room.name}</h2>
                             <form className="space-y-4">
                                 <div>
                                     <label className="block text-gray-700 font-medium mb-2">Full Name</label>
@@ -228,8 +300,8 @@ const Rooms = () => {
                             >
                                 Cancel
                             </button>
-                        </div>
-                    </div>
+                        </motion.div>
+                    </motion.div>
                 )}
 
             </main>

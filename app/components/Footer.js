@@ -1,102 +1,57 @@
-'use client';
+import { Facebook, Instagram, Link, Twitter } from 'lucide-react';
 
-// Footer Component
-import React from "react";
-
-const Footer = () => {
+export default function Footer() {
   return (
-    <footer className="bg-zinc-800 text-white py-8">
+    <footer className="bg-primary text-white py-16">
       <div className="container mx-auto px-4">
-        {/* Footer Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* About Us */}
-          <div>
-            <h3 className="text-lg font-bold mb-4">About Us</h3>
-            <p className="text-zinc-400">
-              Experience unparalleled luxury and hospitality at our hotel. We are
-              committed to providing you with the best stay.
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="space-y-4">
+            <h3 className="text-2xl font-display mb-4">Royal Mandarin</h3>
+            <p className="text-sm opacity-80">
+              Experience luxury redefined at Royal Mandarin, where every moment becomes a cherished memory.
             </p>
           </div>
-
-          {/* Quick Links */}
+          
           <div>
-            <h3 className="text-lg font-bold mb-4">Quick Links</h3>
+            <h4 className="font-display text-lg mb-4">Quick Links</h4>
             <ul className="space-y-2">
-              <li className="relative group">
-                <a
-                  href="#home"
-                  className="transition-all inline-block relative group"
-                >
-                  Home
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
-                </a>
-              </li>
-              <li className="relative group">
-                <a
-                  href="#rooms"
-                  className="transition-all inline-block relative group"
-                >
-                  Rooms
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
-                </a>
-              </li>
-              <li className="relative group">
-                <a
-                  href="#amenities"
-                  className="transition-all inline-block relative group"
-                >
-                  Amenities
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
-                </a>
-              </li>
-              <li className="relative group">
-                <a
-                  href="#gallery"
-                  className="transition-all inline-block relative group"
-                >
-                  Gallery
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
-                </a>
-              </li>
-              <li className="relative group">
-                <a
-                  href="#contact"
-                  className="transition-all inline-block relative group"
-                >
-                  Contact Us
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
-                </a>
-              </li>
+              <li><a href="#rooms" className="hover:text-secondary transition-colors">Rooms & Suites</a></li>
+              <li><a href="#dining" className="hover:text-secondary transition-colors">Dining</a></li>
+              <li><a href="#spa" className="hover:text-secondary transition-colors">Spa & Wellness</a></li>
+              <li><a href="#experiences" className="hover:text-secondary transition-colors">Experiences</a></li>
             </ul>
           </div>
-
-          {/* Contact Info */}
+          
           <div>
-            <h3 className="text-lg font-bold mb-4">Contact Us</h3>
-            <ul className="space-y-2 text-zinc-400">
-              <li>Phone: +1 234 567 890</li>
-              <li>
-                Email:{" "}
-                <a
-                  href="mailto:info@hotel.com"
-                  className="relative group transition-all inline-block"
-                >
-                  info@hotel.com
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
-                </a>
-              </li>
-              <li>Address: 123 Luxury Lane, Cityville</li>
+            <h4 className="font-display text-lg mb-4">Contact</h4>
+            <ul className="space-y-2">
+              <li>123 Luxury Avenue</li>
+              <li>Paradise City, PC 12345</li>
+              <li>+1 (555) 123-4567</li>
+              <li>info@royalmandarin.com</li>
             </ul>
+          </div>
+          
+          <div>
+            <h4 className="font-display text-lg mb-4">Follow Us</h4>
+            <div className="flex space-x-4">
+              <a href="#" className="hover:text-secondary transition-colors">
+                <Facebook size={24} />
+              </a>
+              <a href="#" className="hover:text-secondary transition-colors">
+                <Instagram size={24} />
+              </a>
+              <a href="#" className="hover:text-secondary transition-colors">
+                <Twitter size={24} />
+              </a>
+            </div>
           </div>
         </div>
-
-        {/* Footer Bottom */}
-        <div className="mt-8 text-center text-zinc-400">
-          <p>&copy; {new Date().getFullYear()} Hotel Name. All rights reserved.</p>
+        
+        <div className="border-t border-white/20 mt-12 pt-8 text-center text-sm opacity-80">
+          <p>&copy; 2024 Royal Mandarin. All rights reserved.</p>
         </div>
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}

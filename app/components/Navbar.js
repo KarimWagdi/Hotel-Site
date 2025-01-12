@@ -15,7 +15,7 @@ const Navbar = () => {
                 {/* Desktop Links */}
                 <ul className="hidden md:flex space-x-6 text-zinc-800">
                     <li className="relative group">
-                        <a href="#home" className="transition-all">Home</a>
+                        <a href="/" className="transition-all">Home</a>
                         <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-zinc-800 transition-all duration-300 group-hover:w-full"></span>
                     </li>
                     <li className="relative group">
@@ -27,7 +27,7 @@ const Navbar = () => {
                         <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-zinc-800 transition-all duration-300 group-hover:w-full"></span>
                     </li>
                     <li className="relative group">
-                        <a href="#gallery" className="transition-all">Gallery</a>
+                        <a href="/gallery" className="transition-all">Gallery</a>
                         <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-zinc-800 transition-all duration-300 group-hover:w-full"></span>
                     </li>
                     <li className="relative group">

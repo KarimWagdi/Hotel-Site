@@ -1,6 +1,6 @@
-import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
-import Gallery from "../components/Gallery";
+import Footer from "../_components/Footer";
+import Navbar from "../_components/Navbar";
+import Gallery from "../_components/Gallery";
 
 export default function GalleryPage() {
     return (
